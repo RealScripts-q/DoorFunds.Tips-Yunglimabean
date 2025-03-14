@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yunglimabean's Tip Jar</title>
+    <title>Yunglimabean's Door Funds Jar</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -48,10 +48,10 @@
     </style>
 </head>
 <body>
-    <h1>Yunglimabean's Tip Jar</h1>
+    <h1>Yunglimabean's Door Funds Jar</h1>
     <div class="donation-box">
         <p>Enter the amount you want to donate:</p>
-        <input type="number" id="donationAmount" min="1" max="500" placeholder="Enter amount (1-500)" />
+        <input type="number" id="donationAmount" min="1" placeholder="Enter amount (1 and above)" />
         <p>Enter your currency code (e.g., USD, EUR, GBP):</p>
         <input type="text" id="currencyCode" placeholder="Enter currency code" />
         <button onclick="donate()">Donate</button>
@@ -62,8 +62,8 @@
             let amount = document.getElementById("donationAmount").value;
             let currency = document.getElementById("currencyCode").value;
             
-            if (!amount || amount < 1 || amount > 500) {
-                alert("Please enter a valid amount between 1 and 500.");
+            if (!amount || amount < 1) {
+                alert("Please enter a valid amount.");
                 return;
             }
             
