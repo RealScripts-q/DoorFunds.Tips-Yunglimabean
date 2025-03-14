@@ -9,24 +9,29 @@
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 20px;
+            background-color: #f4f4f4;
+            margin: 0;
         }
         h1 {
             margin-bottom: 20px;
+            font-size: 2em;
         }
         .tip-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
             gap: 10px;
-            max-width: 300px;
+            max-width: 90vw;
             margin: auto;
+            padding: 20px;
         }
         .tip-button {
-            padding: 10px;
-            font-size: 16px;
+            padding: 15px;
+            font-size: 18px;
             border: none;
             background-color: #ffcc00;
             cursor: pointer;
             border-radius: 5px;
+            transition: background 0.3s;
         }
         .tip-button:hover {
             background-color: #ff9900;
@@ -53,7 +58,7 @@
             return button;
         }
         
-        for (let i = 1; i <= 500; i *= 2) {
+        for (let i = 1; i <= 500; i++) {
             tipContainer.appendChild(createTipButton(i));
         }
     </script>
