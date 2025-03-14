@@ -15,25 +15,26 @@
         }
         h1 {
             margin-bottom: 20px;
-            font-size: 2em;
+            font-size: 2.5em;
         }
         .tip-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
-            max-width: 90vw;
+            width: 100%;
+            max-width: 900px;
             margin: auto;
             padding: 20px;
         }
         .tip-button {
             padding: 30px;
-            font-size: 26px;
+            font-size: 28px;
             font-weight: bold;
             border: none;
             background-color: #ffd700;
             color: #333;
             cursor: pointer;
-            border-radius: 25px;
+            border-radius: 15px;
             transition: background 0.3s, transform 0.2s;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
             width: 100%;
@@ -45,20 +46,14 @@
         .hidden {
             display: none;
         }
-        #scrollMessage {
-            font-size: 18px;
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
     <h1>Yunglimabean's Tip Jar</h1>
     <div class="tip-container" id="tipContainer"></div>
-    <p id="scrollMessage">Scroll down for more</p>
 
     <script>
         const tipContainer = document.getElementById("tipContainer");
-        const scrollMessage = document.getElementById("scrollMessage");
         let rowCount = 0;
         let buttons = [];
         
@@ -85,20 +80,8 @@
 
         window.addEventListener("scroll", function() {
             let hiddenButtons = document.querySelectorAll(".hidden");
-            let visibleButtons = document.querySelectorAll(".tip-button:not(.hidden)");
-            
-            if (hiddenButtons.length > 0 && window.scrollY > 100) {
+            if (hiddenButtons.length > 0) {
                 hiddenButtons[0].classList.remove("hidden");
-                if (visibleButtons.length >= 18) {
-                    visibleButtons[0].classList.add("hidden");
-                    visibleButtons[1].classList.add("hidden");
-                    visibleButtons[2].classList.add("hidden");
-                }
-                scrollMessage.style.display = "none";
-            }
-            
-            if (window.scrollY < 100) {
-                scrollMessage.style.display = "block";
             }
         });
     </script>
