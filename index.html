@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yunglimabean's Tip Jar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .tip-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            max-width: 300px;
+            margin: auto;
+        }
+        .tip-button {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            background-color: #ffcc00;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .tip-button:hover {
+            background-color: #ff9900;
+        }
+    </style>
+</head>
+<body>
+    <h1>Yunglimabean's Tip Jar</h1>
+    <div class="tip-container" id="tipContainer"></div>
+
+    <script>
+        const tipContainer = document.getElementById("tipContainer");
+        
+        function createTipButton(amount) {
+            const button = document.createElement("button");
+            button.className = "tip-button";
+            button.innerText = `$${amount}`;
+            button.onclick = function() {
+                let currency = prompt("Enter your currency code (e.g., USD, EUR, GBP):", "USD");
+                if (currency) {
+                    window.location.href = `https://www.paypal.com/donate?business=realgyjs@gmail.com&amount=${amount}&currency_code=${currency}`;
+                }
+            };
+            return button;
+        }
+        
+        for (let i = 1; i <= 500; i *= 2) {
+            tipContainer.appendChild(createTipButton(i));
+        }
+    </script>
+</body>
+</html>
